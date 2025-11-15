@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cryo-quantum-enterprise"
+version = "0.1.0"
+description = "Enterprise-grade cryogenic quantum computing control system"
+authors = [
+    {name = "Quantum Engineering Team", email = "quantum@enterprise.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+    "pandas>=2.0.0",
+    "qutip>=4.7.0",
+    "jax>=0.4.0",
+    "jaxlib>=0.4.0",
+    "fastapi>=0.95.0",
+    "pydantic>=1.10.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.3.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jamesenglis/cryo-quantum-enterprise"
+"Bug Reports" = "https://github.com/jamesenglis/cryo-quantum-enterprise/issues"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
