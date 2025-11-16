@@ -1,0 +1,62 @@
+name: Quantum CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quantum-tests:
+    name: Quantum Tests
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        pip install -e .
+        pip install pytest pytest-cov
+    
+    - name: Run quantum unit tests
+      run: |
+        pytest tests/unit/ -v --cov=src --cov-report=xml
+    
+    - name: Run quantum demo
+      run: |
+        python scripts/run_demo.py
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+
+  code-quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+    needs: quantum-tests
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install code quality tools
+      run: |
+        pip install black flake8
+    
+    - name: Check code formatting
+      run: |
+        black --check src/ tests/
+    
+    - name: Check code style
+      run: |
+        flake8 src/ tests/
