@@ -1,5 +1,8 @@
+README.md
+pyproject.toml
 setup.py
 src/api/__init__.py
+src/api/quantum_api.py
 src/cryo_hardware/__init__.py
 src/cryo_hardware/signal_chain.py
 src/cryo_quantum_enterprise.egg-info/PKG-INFO
@@ -9,4 +12,6 @@ src/cryo_quantum_enterprise.egg-info/requires.txt
 src/cryo_quantum_enterprise.egg-info/top_level.txt
 src/quantum_control/__init__.py
 src/quantum_control/transmon_qubit.py
+src/quantum_control/two_qubit_gates.py
 src/quantum_ops/__init__.py
+src/quantum_ops/error_correction.py

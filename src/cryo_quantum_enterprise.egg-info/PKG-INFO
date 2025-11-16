@@ -2,7 +2,11 @@ Metadata-Version: 2.4
 Name: cryo-quantum-enterprise
 Version: 0.1.0
 Summary: Enterprise-grade cryogenic quantum computing control system
+Author-email: Quantum Engineering Team <quantum@enterprise.com>
+Project-URL: Homepage, https://github.com/jamesenglis/cryo-quantum-enterprise
+Project-URL: Bug Reports, https://github.com/jamesenglis/cryo-quantum-enterprise/issues
 Requires-Python: >=3.9
+Description-Content-Type: text/markdown
 Requires-Dist: numpy>=1.24.0
 Requires-Dist: scipy>=1.10.0
 Requires-Dist: matplotlib>=3.7.0
@@ -10,6 +14,17 @@ Requires-Dist: pandas>=2.0.0
 Requires-Dist: qutip>=4.7.0
 Requires-Dist: jax>=0.4.0
 Requires-Dist: jaxlib>=0.4.0
-Dynamic: requires-dist
+Requires-Dist: fastapi>=0.95.0
+Requires-Dist: pydantic>=1.10.0
+Requires-Dist: pyyaml>=6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.3.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: pre-commit>=3.0.0; extra == "dev"
 Dynamic: requires-python
-Dynamic: summary
+
+# Quantum System
+Run: python scripts/run_demo.py
